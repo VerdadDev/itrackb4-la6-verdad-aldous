@@ -16,6 +16,7 @@
                 <th>#</th>
                 <th>Title</th>
                 <th>Author</th>
+                <th>Rating</th>
                 <th>Genre</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $comic['title'] }}</td>
                     <td>{{ $comic['author'] }}</td>
+                    <td>{{ $comic['rate'] }}</td>
                     <td>{{ $comic['genre'] }}</td>
                 </tr>
                 @empty

@@ -8,6 +8,7 @@
         <h4>Comic: {{ $comic['title'] }}</h4>
         <p><strong>Author:</strong> {{ $comic['author'] }}</p>
         <p><strong>Genre:</strong> {{ $comic['genre'] }}</p>
+        <p><strong>Rating:</strong> {{ $comic['rate'] }}</p>
         <p><strong>Chapters:</strong> {{ $comic['chapter'] }}</p>
         <p><strong>Complete:</strong> {{ $comic['is_complete'] ? 'Yes' : 'No' }}</p>
     </div>

@@ -1,15 +1,19 @@
-Lab Activity 3
+Lab Activity 6
 
 #Answers
 
-Q1. Explain the order you placed your featured route and your detail route in, and what would happen if you swapped them.
+Q1 You added a second filter without adding a single route. Explain why no new route was needed. Your answer should say something about what the router actually looks at.
 
-- I placed them in alphabetical order and if i swapped them i will have an 404 error like for example i put the filter under  the id and the result is 404.
+ - No new route is needed because the router only checks the path of the URL. The genre and rate are query parameters, so they can use the same /comics route.
 
-Q2. What happens when someone visits an id that does not exist in your data, and what did you write to make that happen?
+Q2 Suppose you had built both filters as route parameters instead. Describe what the URL for 'year 4 only, no course filter' would have to look like, and why.
 
-- When they visit an a id that don't exists they will have a page showing 404, i write an if statement if the id number is not set it will abort 404.
+ - The URL would be /students/all/4. all means no course filter, and 4 means year 4. This is because route parameters are part of the URL path.
 
-Q3. Why do your links use route names instead of typed URLs? Give one concrete thing that would break if they did not.
+Q3 Your navigation link stays marked on a detail page and also when a filter is applied. Only one of those two needed a change to your pattern. Say which one, and why the other needed nothing.
 
-- I use route names instead of typing URLs directly because route names make the links easier to manage. If I change the URL in web.php, the links will still work because they use the route name. If I typed the URL directly, the link could break and return a 404 error.
+ - The detail page needed a change because it has a different path, like /comics/5. The filter did not need a change because ?genre=Action is only a query parameter.
+
+Q4 You deleted your old filter method but kept the empty store and update methods, even though none of the three can be reached by a URL. Explain the difference between them.
+
+ - I removed the old filter method because I don't use it anymore. The store and update methods are used for adding and changing data, so I can keep them for future use.

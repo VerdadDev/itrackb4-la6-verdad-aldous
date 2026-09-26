@@ -4,15 +4,32 @@
 
 @section('content')
 
-    @if ($genre === 'all')
-        <p>Showing all comics</p>
+    @if ($genre === 'all' && $rate === 'all')
+     <p>Showing all comics</p>
+
+    @elseif ($genre !== 'all' && $rate === 'all')
+    <p>Showing comics with genre: {{ $genre }}</p>
+
+    @elseif ($genre === 'all' && $rate !== 'all')
+    <p>Showing comics with rating: {{ $rate }} stars and above</p>
+
     @else
-        <p>Showing comics with genre: {{$genre}}</p>
+    <p>Showing comics with genre: {{ $genre }} and rating: {{ $rate }} stars and above</p>
     @endif
 
-    <nav class="navbar navbar-expand-lg navbar-light text-bg-light p-2">
-    <a href="{{ route('comics.index') }}">Comics</a>
-    <a href="{{ route('comics.index') }}">Filter</a>
+    <nav>
+    <a href="{{ route('comics.index') }}">All</a>
+    <a href="{{ route('comics.index', ['genre' => 'Action', 'rate' => $rate]) }}">Action</a>
+    <a href="{{ route('comics.index', ['genre' => 'Comedy', 'rate' => $rate]) }}">Comedy</a>
+    <a href="{{ route('comics.index', ['genre' => 'Mystery', 'rate' => $rate]) }}">Mystery</a>
+    <a href="{{ route('comics.index', ['genre' => 'Drama', 'rate' => $rate]) }}">Drama</a>
+    <a href="{{ route('comics.index', ['genre' => 'Romance', 'rate' => $rate]) }}">Romance</a>
+    </nav>
+
+    <nav>
+    <a href="{{ route('comics.index', ['rate' => '5', 'genre' => $genre]) }}">5</a>
+    <a href="{{ route('comics.index', ['rate' => '4', 'genre' => $genre]) }}">4 & Above</a>
+    <a href="{{ route('comics.index', ['rate' => '3', 'genre' => $genre]) }}">3 & Above</a>
     </nav>
  
 
@@ -21,6 +38,7 @@
             <th>#</th>
             <th>Title</th>
             <th>Author</th>
+            <th>Rating</th>
             <th>Genre</th>
             <th>Chapters</th>
             <th>Complete</th>
@@ -31,6 +49,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td><a href="{{ route('comics.show', [$comic['id']]) }}">{{ $comic['title'] }}</a></td>
                 <td><a href="{{ route('comics.show', [$comic['id']]) }}">{{ $comic['author'] }}</a></td>
+                <td>{{ $comic['rate'] }}</td>
                 <td>{{ $comic['genre'] }}</td>
                 <td>{{ $comic['chapter'] }}</td>
                 <td>{{ $comic['is_complete'] ? 'Yes' : 'No' }}</td>           

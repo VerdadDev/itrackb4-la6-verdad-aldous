@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet">
 </head>
-<body class="container text-bg-dark">
+<body class="container text-bg-white">
     
     <h1 class="text-center p-4">@yield('title', 'My Manga Library')</h1>
     <p>Prepared by: Aldous Malvin Verdad</p>
