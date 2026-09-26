@@ -9,9 +9,39 @@ class ComicController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('comics.index', ['comics' => $this->comics()]);
+        $genre = $request->query('genre', 'all');
+        $chapter = $request->query('chapter', 'all');
+
+        $all = $this->comics();
+
+        if($genre === 'all'){
+            $comics = $all;
+        }
+        else{
+            $comics = [];
+            foreach($all as $id => $comic){
+                if($comic['genre'] == $genre){
+                    $comics[$id] = $comic;
+                }
+            }
+        }
+        if ($chapter === 'all') {
+            $comics = $all;
+        } else {
+            $comics = [];
+            foreach ($all as $id => $comic) {
+                if ($comic['chapter'] == $chapter) {
+                    $comics[$id] = $comic;
+                }
+            }
+        }
+
+        return view('comics.index', 
+        ['comics' => $comics, 
+        'genre' => $genre,
+        'chapter' => $chapter]);
     }
 
     /**

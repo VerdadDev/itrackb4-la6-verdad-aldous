@@ -3,7 +3,19 @@
 @section('title')
 
 @section('content')
+
+    @if ($genre === 'all')
+        <p>Showing all comics</p>
+    @else
+        <p>Showing comics with genre: {{$genre}}</p>
+    @endif
+
+    <nav class="navbar navbar-expand-lg navbar-light text-bg-light p-2">
+    <a href="{{ route('comics.index') }}">Comics</a>
+    <a href="{{ route('comics.index') }}">Filter</a>
+    </nav>
  
+
     <table class = "table table-striped mt-4" border="1" cellpadding="8">
         <tr>
             <th>#</th>
