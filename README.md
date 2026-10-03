@@ -2,18 +2,14 @@ Lab Activity 6
 
 #Answers
 
-Q1 You added a second filter without adding a single route. Explain why no new route was needed. Your answer should say something about what the router actually looks at.
+Q1 Your form sends data with POST rather than GET. Explain what would go wrong if it used GET instead. Your answer should say something about what a browser does when a page is refreshed.
 
- - No new route is needed because the router only checks the path of the URL. The genre and rate are query parameters, so they can use the same /comics route.
+ - When use the Get instead of POST the input it will just go to URL.
 
-Q2 Suppose you had built both filters as route parameters instead. Describe what the URL for 'year 4 only, no course filter' would have to look like, and why.
+Q2 When validation fails, your controller does not run the code that saves the record — and you did not write an if statement to stop it. Explain what actually stops it, and where the visitor ends up.
 
- - The URL would be /students/all/4. all means no course filter, and 4 means year 4. This is because route parameters are part of the URL path.
+ - the laravel stop it and the save part does not run it will just go back to form and see errors.
 
-Q3 Your navigation link stays marked on a detail page and also when a filter is applied. Only one of those two needed a change to your pattern. Say which one, and why the other needed nothing.
+Q3 Your success message is displayed from the layout, which renders on every page. Explain why it does not appear on every page.
 
- - The detail page needed a change because it has a different path, like /comics/5. The filter did not need a change because ?genre=Action is only a query parameter.
-
-Q4 You deleted your old filter method but kept the empty store and update methods, even though none of the three can be reached by a URL. Explain the difference between them.
-
- - I removed the old filter method because I don't use it anymore. The store and update methods are used for adding and changing data, so I can keep them for future use.
+ - It only display in list page because when you finish storing the data because the list page is main pag eit go first to see the new added data.

@@ -10,6 +10,11 @@
     <h1 class="text-center p-4">@yield('title', 'My Manga Library')</h1>
     <p>Prepared by: Aldous Malvin Verdad</p>
     @include('partials._nav')
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     @yield('content')
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/
             dist/js/bootstrap.bundle.min.js"></script>

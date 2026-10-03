@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
     @if ($genre === 'all' && $rate === 'all')
      <p>Showing all comics</p>
 
@@ -31,7 +33,8 @@
     <a href="{{ route('comics.index', ['rate' => '4', 'genre' => $genre]) }}">4 & Above</a>
     <a href="{{ route('comics.index', ['rate' => '3', 'genre' => $genre]) }}">3 & Above</a>
     </nav>
- 
+
+    <button class="btn btn-primary mt-3"><a href="{{ route('comics.create') }}" class="text-white">Add Comics</a></button>
 
     <table class = "table table-striped mt-4" border="1" cellpadding="8">
         <tr>
